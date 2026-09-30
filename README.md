@@ -77,7 +77,7 @@ git merge --abort # cancela um merge em andamento
 
 ---
 
-## Exercício: subindo um código pro GitHub
+## Exercício 1 — Subindo seu primeiro código
 
 1. No GitHub, clique em **New repository**, dê um nome (ex: `meu-primeiro-repo`), marque **Add a README file** e crie.
 2. Clone pra sua máquina:
@@ -99,17 +99,53 @@ git merge --abort # cancela um merge em andamento
 
 ## Fork — quando usar
 
-Fork é uma cópia do repositório de outra pessoa, feita na sua própria conta do GitHub. Use quando você **não tem** permissão de escrita no projeto original (ex: contribuir em um projeto open source). Quando você **já tem** acesso de escrita (projetos do próprio PET EEL, por exemplo), não precisa de fork — trabalhe direto com uma branch.
+Fork é uma cópia do repositório de outra pessoa, feita na sua própria conta do GitHub. Use quando você **não tem** permissão de escrita no projeto original (ex: contribuir em um projeto open source). Quando você **já tem** acesso de escrita (projetos do próprio PET EEL, por exemplo), não precisa de fork — trabalhe direto com uma branch. O fork vira um repositório independente: nada que você faz nele muda o original.
 
 ```bash
 # depois de clicar em "Fork" no site:
 git clone https://github.com/SEU-USUARIO/repo-forkado.git
-cd repo-forkado
-git checkout -b minha-contribuicao
-# ... faça commits ...
-git push origin minha-contribuicao
-# abra um Pull Request do seu fork pro repositório original, pelo site do GitHub
 ```
+
+---
+
+## Exercício 2 — Corrigindo um bug via Fork
+
+Neste exercício, este repositório (`workshop-github`) já tem um arquivo com um erro proposital em `exercicio/calcular_media.py`. Você vai corrigi-lo na sua própria cópia.
+
+1. Clique em **Fork** aqui em cima, no repositório `workshop-github`.
+2. Clone o **seu fork** (não o original):
+   ```bash
+   git clone https://github.com/SEU-USUARIO/workshop-github.git
+   cd workshop-github/exercicio
+   ```
+3. Abra `calcular_media.py` e encontre o erro (dica: rode o arquivo e leia a mensagem que o Python te dá).
+4. Corrija e teste:
+   ```bash
+   python calcular_media.py
+   ```
+5. Suba a correção pro seu fork:
+   ```bash
+   git add calcular_media.py
+   git commit -m "fix: corrige erro de sintaxe no cálculo da média"
+   git push
+   ```
+6. Confira a versão corrigida no **seu fork**, no GitHub.
+
+Não é necessário abrir uma Pull Request de volta para este repositório — seu fork já é a sua cópia, então o `push` encerra o exercício. Abrir uma PR é opcional, só para quem quiser ver esse fluxo na prática.
+
+**O arquivo com bug:**
+```python
+def calcular_media(notas):
+    soma = 0
+    for nota in notas
+        soma += nota
+    media = soma / len(notas)
+    return media
+
+notas = [8, 7, 9, 10]
+print("A média é:", calcular_media(notas))
+```
+(Falta um `:` depois de `for nota in notas`.)
 
 ---
 
