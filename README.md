@@ -146,6 +146,28 @@ print("Quantidade de pares:", contar_pares(numeros))
 ```
 (O programa não quebra, mas dá a resposta errada: `2` em vez de `3`.)
 
+<details>
+<summary>Resposta (só abra depois de tentar!)</summary>
+
+O bug está na condição do `if`: `n % 2 == 1` é verdadeiro para números **ímpares**, então a função está contando os ímpares (7 e 9) em vez dos pares. A correção é trocar `1` por `0`:
+
+```python
+def contar_pares(numeros):
+    contador = 0
+    for n in numeros:
+        if n % 2 == 0:
+            contador += 1
+    return contador
+
+numeros = [2, 4, 6, 7, 9]
+print("Quantidade de pares:", contar_pares(numeros))
+```
+
+Saída esperada: `Quantidade de pares: 3`
+
+Mensagem de commit sugerida: `fix: corrige contagem de pares`
+</details>
+
 ---
 
 ## Fork — quando usar
@@ -197,6 +219,28 @@ notas = [8, 7, 9, 10]
 print("A média é:", calcular_media(notas))
 ```
 (Falta um `:` depois de `for nota in notas`.)
+
+<details>
+<summary>Resposta (só abra depois de tentar!)</summary>
+
+O Python não consegue executar o arquivo porque a linha do `for` não termina com `:`. A mensagem de erro (`SyntaxError: expected ':'`) aponta exatamente essa linha. A correção é adicionar os dois pontos no final:
+
+```python
+def calcular_media(notas):
+    soma = 0
+    for nota in notas:
+        soma += nota
+    media = soma / len(notas)
+    return media
+
+notas = [8, 7, 9, 10]
+print("A média é:", calcular_media(notas))
+```
+
+Saída esperada: `A média é: 8.5`
+
+Mensagem de commit sugerida: `fix: corrige erro de sintaxe no cálculo da média`
+</details>
 
 ---
 
