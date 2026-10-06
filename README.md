@@ -97,6 +97,57 @@ git merge --abort # cancela um merge em andamento
 
 ---
 
+## Pull Request — o que é
+
+Uma Pull Request (PR) é uma proposta: "quero que os commits da minha branch entrem na branch principal". Ela é aberta pelo site do GitHub e permite ver o diff, comentar linha por linha e pedir revisão de outra pessoa.
+
+---
+
+## Exercício 2 — Sua primeira Pull Request
+
+Aqui você trabalha **dentro** do repositório, como colaborador. Antes da aula você recebe um convite por e-mail: aceite ele.
+
+1. Clone este repositório:
+   ```bash
+   git clone https://github.com/PET-EEL-UFSC/workshop-github.git
+   cd workshop-github
+   ```
+2. Crie uma branch com o seu nome (não use um nome genérico, para não colidir com a de outra pessoa):
+   ```bash
+   git checkout -b fix/seu-nome
+   ```
+3. Abra `exercicio/contar_pares.py` e rode o arquivo. O resultado esperado é `3`. Se o programa imprimir outro valor, tem um bug na lógica.
+4. Corrija, teste e faça o commit:
+   ```bash
+   python exercicio/contar_pares.py
+   git add exercicio/contar_pares.py
+   git commit -m "fix: corrige contagem de pares"
+   ```
+5. Envie a sua branch (a primeira vez numa branch nova precisa do `-u`):
+   ```bash
+   git push -u origin fix/seu-nome
+   ```
+6. No site do GitHub, clique em **Compare & pull request**, escreva um título e uma descrição e clique em **Create pull request**.
+7. Abra a aba **Files changed** da sua PR e veja o diff do seu conserto.
+
+As PRs **não serão aprovadas nem mergeadas**: o objetivo é só praticar o fluxo. A branch `main` é protegida, então não dá para dar push direto nela.
+
+**O arquivo com bug:**
+```python
+def contar_pares(numeros):
+    contador = 0
+    for n in numeros:
+        if n % 2 == 1:
+            contador += 1
+    return contador
+
+numeros = [2, 4, 6, 7, 9]
+print("Quantidade de pares:", contar_pares(numeros))
+```
+(O programa não quebra, mas dá a resposta errada: `2` em vez de `3`.)
+
+---
+
 ## Fork — quando usar
 
 Fork é uma cópia do repositório de outra pessoa, feita na sua própria conta do GitHub. Use quando você **não tem** permissão de escrita no projeto original (ex: contribuir em um projeto open source). Quando você **já tem** acesso de escrita (projetos do próprio PET EEL, por exemplo), não precisa de fork — trabalhe direto com uma branch. O fork vira um repositório independente: nada que você faz nele muda o original.
@@ -108,15 +159,15 @@ git clone https://github.com/SEU-USUARIO/repo-forkado.git
 
 ---
 
-## Exercício 2 — Corrigindo um bug via Fork
+## Exercício 3 — Corrigindo um bug via Fork
 
 Neste exercício, este repositório (`workshop-github`) já tem um arquivo com um erro proposital em `exercicio/calcular_media.py`. Você vai corrigi-lo na sua própria cópia.
 
 1. Clique em **Fork** aqui em cima, no repositório `workshop-github`.
-2. Clone o **seu fork** (não o original):
+2. Clone o **seu fork** (não o original), numa pasta com outro nome, porque a pasta `workshop-github` já existe por causa do Exercício 2:
    ```bash
-   git clone https://github.com/SEU-USUARIO/workshop-github.git
-   cd workshop-github/exercicio
+   git clone https://github.com/SEU-USUARIO/workshop-github.git workshop-github-fork
+   cd workshop-github-fork/exercicio
    ```
 3. Abra `calcular_media.py` e encontre o erro (dica: rode o arquivo e leia a mensagem que o Python te dá).
 4. Corrija e teste:
