@@ -2,8 +2,6 @@
 
 Material de apoio do workshop de Git e GitHub do PET EEL (UFSC). Use este README durante e depois da aula como referência rápida.
 
-> 📄 Guia completo (com explicações, exemplos e o roteiro da aula): [link a adicionar]
-
 ---
 
 ## Preparação antes de começar
