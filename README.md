@@ -103,7 +103,7 @@ Uma Pull Request (PR) é uma proposta: "quero que os commits da minha branch ent
 
 ## Exercício 2 — Sua primeira Pull Request
 
-Aqui você trabalha **dentro** do repositório, como colaborador. Antes da aula você recebe um convite por e-mail: aceite ele.
+Aqui você trabalha **dentro** do repositório, como colaborador. Durante a aula você recebe um convite por e-mail: aceite ele.
 
 1. Clone este repositório:
    ```bash
